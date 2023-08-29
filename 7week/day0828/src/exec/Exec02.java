@@ -14,13 +14,22 @@ public class Exec02 {
         // 输出：true
         Scanner sc=new Scanner(System.in);
         System.out.println("请输入一个包含括号的字符串");
-        String str=sc.next();
-        System.out.println(isValid(str));
+        String str=sc.nextLine();
+        System.out.println(isValid1(str));
     }
-    public static boolean isValid(String str){
-        if (str.contains("()") || str.contains("{}") || str.contains("[]")){
+    public static boolean isValid1(String str){
+        if (str==null){
+            return false;
+        }
+        if (str.isBlank() || str.isEmpty()){
             return true;
         }
-        return false;
+        str=str.replace(" ","");
+        while(str.contains("()") || str.contains("{}") || str.contains("[]")){
+            str=str.replace("{}","");
+            str=str.replace("()","");
+            str=str.replace("[]","");
+        }
+        return str.isEmpty() || str.isBlank();
     }
 }
