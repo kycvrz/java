@@ -15,7 +15,26 @@ public class Exec02 {
         Scanner sc=new Scanner(System.in);
         System.out.println("请输入一个包含括号的字符串");
         String str=sc.nextLine();
-        System.out.println(isValid1(str));
+        System.out.println(isValid(str));
+    }
+    public static boolean isValid(String str){
+        // 用栈的思想去解决
+        char[] chars=new char[str.length()];
+        int count=0;
+        for (int i = 0; i < str.length(); i++) {
+            char c=' ';
+            if (c=='(' || c=='{' || c=='['){
+                chars[count++]=c;
+            }else if (c==')' || c=='}' || c==']'){
+                if (count==0){
+                    return false;
+                }
+                if(chars[count-1]=='(' || chars[count-1]=='{' || chars[count-1]==']'){
+                    chars[--count]=' ';
+                }
+            }
+        }
+        return count==0;
     }
     public static boolean isValid1(String str){
         if (str==null){

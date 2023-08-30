@@ -56,8 +56,9 @@ class SavingsAccount extends BankAccount{
  */
 class CheckingAccount extends BankAccount{
     double overdraftLimit;
-    public CheckingAccount(String accountNumber, double balance) {
+    public CheckingAccount(String accountNumber, double balance,double overdraftLimit) {
         super(accountNumber, balance);
+        this.overdraftLimit=overdraftLimit;
     }
     @Override
     public double withdraw(double amount) { // 取款
@@ -86,7 +87,7 @@ class BankAccountTest{
         bankAccount.withdraw(2000);// 取款2000
         bankAccount.withdraw(18000);// 取款1800
         bankAccount.displayBalance();
-        BankAccount bankAccount1=new CheckingAccount("李四",18000);
+        BankAccount bankAccount1=new CheckingAccount("李四",18000,5000);
         bankAccount1.displayBalance();
     }
 }
