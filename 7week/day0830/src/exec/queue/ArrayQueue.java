@@ -7,7 +7,11 @@ public class ArrayQueue extends Queue{
     private Object[] objs;
     private int count;
     private int capacity=10;
-    public ArrayQueue() {
+    public ArrayQueue() { //
+        objs=new Object[capacity];
+    }
+    public ArrayQueue(int capacity){
+        this.capacity=capacity;
         objs=new Object[capacity];
     }
 

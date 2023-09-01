@@ -2,7 +2,7 @@ package exec.queue;
 
 public class QueueTest {
     public static void main(String[] args) {
-        ArrayQueue arrayQueue=new ArrayQueue();
+        ArrayQueue arrayQueue=new ArrayQueue(8);
         arrayQueue.enqueue(1);
         arrayQueue.enqueue(2);
         arrayQueue.enqueue(3);
