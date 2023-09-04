@@ -24,18 +24,8 @@ public class MyStack extends Stack{
      */
     @Override
     void push(Object element) {
-        if (count+1> arr.length){
-            grow();
-        }
+        grow();
         arr[count++]=element;
-    }
-    public void grow(){
-        int oldCapacity=arr.length;
-        int newCapacity=oldCapacity*2;
-        if (newCapacity>oldCapacity){
-            newCapacity=Integer.MAX_VALUE;
-        }
-        arr=Arrays.copyOf(arr,newCapacity);
     }
     /**
      * 弹出栈顶元素并返回
@@ -77,6 +67,19 @@ public class MyStack extends Stack{
     @Override
     int size() {
         return count;
+    }
+    public void grow(){// 数组的扩容
+        if (count>= arr.length){
+            Object[] newArr=new Object[capacity*3/2];// >>1：除2  <<1：乘2
+            System.arraycopy(arr,0,newArr,0,arr.length);
+            arr=newArr;
+        }
+//        int oldCapacity=arr.length;
+//        int newCapacity=oldCapacity*2;
+//        if (newCapacity>oldCapacity){
+//            newCapacity=Integer.MAX_VALUE;
+//        }
+//        arr=Arrays.copyOf(arr,newCapacity);
     }
     @Override
     public String toString() {

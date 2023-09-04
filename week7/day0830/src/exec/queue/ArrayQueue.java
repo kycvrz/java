@@ -20,9 +20,9 @@ public class ArrayQueue extends Queue{
 //        objs=new Object[capacity];
 //    }
     private void grow(){ // 数组的扩容
-        if (count>=capacity){
+        if (count>=objs.length){
             Object[] newObj=new Object[capacity*3/2];
-            System.arraycopy(objs,0,newObj,0,capacity-1);
+            System.arraycopy(objs,0,newObj,0,capacity);
             objs=newObj;
         }
     }
@@ -33,9 +33,7 @@ public class ArrayQueue extends Queue{
      */
     @Override
     void enqueue(Object element) {
-        if (count>=capacity){
-            grow();
-        }
+        grow();
         objs[count++]=element;
     }
     /**
@@ -46,9 +44,8 @@ public class ArrayQueue extends Queue{
     @Override
     Object dequeue() {
         Object removed=objs[0];
-        Object[] newObjs=new Object[objs.length];
-        System.arraycopy(objs,1,newObjs,0,objs.length-1);
-        objs=newObjs;
+//        Object[] newObjs=new Object[objs.length];
+        System.arraycopy(objs,1,objs,0,objs.length-1);
         count--;
         return removed;
     }
@@ -72,6 +69,10 @@ public class ArrayQueue extends Queue{
         return count==0;
     }
 
+    /**
+     * 队列的长度
+     * @return 返回队列的大小
+     */
     @Override
     int size() {
         return count;

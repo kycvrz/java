@@ -7,34 +7,40 @@ public abstract class BankAccount {
     // 3.在主程序中，创建几个储蓄账户和支票账户对象，进行存款和取款操作。
     protected String accountNumber;
     protected double balance;
+
     public BankAccount(String accountNumber, double balance) {
         this.accountNumber = accountNumber;
         this.balance = balance;
     }
+
     public abstract double withdraw(double amount);
+
     public abstract double deposit(double amount);
-    public void displayBalance(){ //
-        System.out.println("账户名称："+accountNumber+"，账户余额："+balance);
+
+    public void displayBalance() { //
+        System.out.println("账户名称：" + accountNumber + "，账户余额：" + balance);
     }
 }
+
 /**
  * 储蓄账户
  */
-class SavingsAccount extends BankAccount{
+class SavingsAccount extends BankAccount {
     public SavingsAccount(String accountNumber, double balance) {
         super(accountNumber, balance);
     }
 
     /**
      * 取款方法
+     *
      * @param amount 取款的参数多少
      * @return 返回取款后的余额
      */
     @Override
     public double withdraw(double amount) { // 取款
-        if (amount>0 && amount<=super.balance){
+        if (amount > 0 && amount <= super.balance) {
             System.out.println("取款成功");
-            return super.balance-=amount;
+            return super.balance -= amount;
         }
         System.out.println("余额不足，取款失败");
         return balance;
@@ -42,9 +48,9 @@ class SavingsAccount extends BankAccount{
 
     @Override
     public double deposit(double amount) { // 存款
-        if (amount>0){
+        if (amount > 0) {
             System.out.println("存款成功");
-            return super.balance+=amount;
+            return super.balance += amount;
         }
         System.out.println("存款失败");
         return super.balance;
@@ -52,42 +58,46 @@ class SavingsAccount extends BankAccount{
 }
 
 /**
- *  支票账户
+ * 支票账户
  */
-class CheckingAccount extends BankAccount{
+class CheckingAccount extends BankAccount {
     double overdraftLimit;
-    public CheckingAccount(String accountNumber, double balance,double overdraftLimit) {
+
+    public CheckingAccount(String accountNumber, double balance, double overdraftLimit) {
         super(accountNumber, balance);
-        this.overdraftLimit=overdraftLimit;
+        this.overdraftLimit = overdraftLimit;
     }
+
     @Override
     public double withdraw(double amount) { // 取款
-        if (amount>0 &  amount<=super.balance){
+        if (amount > 0 & amount <= super.balance) {
             System.out.println("取款成功");
-            return super.balance-=amount;
-        }else{
+            return super.balance -= amount;
+        } else {
             System.out.println("余额不足，取款失败");
         }
         return super.balance;
     }
+
     @Override
     public double deposit(double amount) { // 存款
-        if (amount>0){
+        if (amount > 0) {
             System.out.println("存款成功");
-            return super.balance+=amount;
-        }else {
+            return super.balance += amount;
+        } else {
             System.out.println("存款失败");
         }
         return super.balance;
     }
 }
-class BankAccountTest{
+
+class BankAccountTest {
     public static void main(String[] args) {
-        BankAccount bankAccount=new SavingsAccount("张三",20000);
+        BankAccount bankAccount = new SavingsAccount("张三", 20000);
         bankAccount.withdraw(2000);// 取款2000
         bankAccount.withdraw(18000);// 取款1800
         bankAccount.displayBalance();
-        BankAccount bankAccount1=new CheckingAccount("李四",18000,5000);
+        BankAccount bankAccount1 = new CheckingAccount("李四", 18000, 5000);
         bankAccount1.displayBalance();
     }
 }
