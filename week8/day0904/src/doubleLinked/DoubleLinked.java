@@ -43,9 +43,9 @@ public class DoubleLinked {
         if (last == null) {
             return false;
         }
-        Node prev=last.prev;
+        Node prev = last.prev;
         prev.next = null;
-        last=prev;
+        last = prev;
         size--;
         return true;
     }
@@ -58,29 +58,33 @@ public class DoubleLinked {
      */
     public boolean remove(Object obj) { // 删除其他元素
         if (Objects.equals(first.value, obj)) {
-            firstRemove();
-            return true;
-        }else if (Objects.equals(last.value, obj)){
-            lastRemove();
-            return true;
-        }else {
-            Node t = first.next;
-            while (!Objects.equals(t.value, obj)) {
-                t = t.next;
-                if (t == null) {
-                    return false;
-                }
-            }
-            Node prior = t.prev;
-            Node latter = t.next;
-            prior.next = latter;
-            latter.prev = prior;
-            t.prev = null;
-            t.next = null;
-            size--;
-            return true;
+            return firstRemove();
         }
+        if (Objects.equals(last.value, obj)) {
+            return lastRemove();
+        }
+        Node t = first.next;
+        while (!Objects.equals(t.value, obj)) {
+            t = t.next;
+            if (t == null) {
+                return false;
+            }
+        }
+        Node prior = t.prev;
+        Node latter = t.next;
+        prior.next = latter;
+        latter.prev = prior;
+        t.prev = null;
+        t.next = null;
+        size--;
+        return true;
     }
+
+    /**
+     * 获取链表长度
+     *
+     * @return 返回链表长度
+     */
     public int size() {// 链表长度
         return size;
     }
@@ -130,15 +134,16 @@ public class DoubleLinked {
         return false;
     }
 
+    @Override
     public String toString() {
         if (isEmpty()) {
             return "";
         }
         Node t = first;
         StringBuilder sb = new StringBuilder("DoubleLinked[");
-        while (t.next!=null){
-            sb.append(t.value+",");
-            t=t.next;
+        while (t.next != null) {
+            sb.append(t.value).append(",");
+            t = t.next;
         }
         sb.append("]");
 //        for (int i = 0; i < size; i++) {
@@ -171,10 +176,10 @@ class Test {
         System.out.println("添加元素是否成功：" + doubleLinked.add("黄子韬"));
         System.out.println("添加元素是否成功：" + doubleLinked.add("张子豪"));
         System.out.println("添加元素是否成功：" + doubleLinked.add("成毅"));
-        System.out.println("添加元素是否成功："+doubleLinked.add("李钟硕"));
+        System.out.println("添加元素是否成功：" + doubleLinked.add("李钟硕"));
         System.out.println("删除元素是否成功：" + doubleLinked.remove("成毅"));
         System.out.println("是否包含该元素：" + doubleLinked.contains("张子豪"));
-        System.out.println("该元素所在的下标："+doubleLinked.indexOf("成毅"));
+        System.out.println("该元素所在的下标：" + doubleLinked.indexOf("成毅"));
         System.out.println("链表的大小：" + doubleLinked.size());
         System.out.println("链表是否为空：" + doubleLinked.isEmpty());
         System.out.println("该索引处的值：" + doubleLinked.get(1));

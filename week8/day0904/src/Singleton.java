@@ -1,8 +1,9 @@
 public enum Singleton {
-    INSTANCE();
+    INSTANCE;
 }
 class Test006{
     public static void main(String[] args) {
         Singleton instance = Singleton.INSTANCE;
+        System.out.println(instance);
     }
 }
