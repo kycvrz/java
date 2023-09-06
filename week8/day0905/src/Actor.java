@@ -41,7 +41,7 @@ public class Actor {
     @Override
     public String toString() {
         return "Actor{" +
-                "姓名：" + name +
+                "演员：" + name +
                 ", 电视剧：" + teleplay +
                 ", 播放量：" + viewCounts +
                 '}';
@@ -80,7 +80,7 @@ class ActorTest {
             System.out.println(v);
         }
         System.out.println("迭代输出 Integer");
-        // 迭代输出 Integer
+        // 迭代输出 Iterator
         Iterator iterator=vector.iterator(); // 创建接口对象 调用iterator()方法
         while (iterator.hasNext()){ // 是否为空
             System.out.println(iterator.next()); // 表示当前元素，并且指向下一个元素
@@ -109,16 +109,17 @@ class ActorTest {
                 }
             }
         }
-//        for (int i = 0; i < vector.size(); i++) {
-//            Actor viewCount1=(Actor) vector.get(i);
-//            int index=i;
-//            for (int j = i+1; j < vector.size(); j++) {
-//                Actor viewCount2=(Actor) vector.get(j);
-//                if (viewCount1.getViewCounts()<viewCount2.getViewCounts()){
-//                    index=j;
-//                }
-//            }
-//            (Actor)vector.get(index);
-//        }
+        // 选择排序
+        for (int i = 0; i < vector.size(); i++) {
+            Actor viewCount1=(Actor) vector.get(i);
+            int index=i;
+            for (int j = i+1; j < vector.size(); j++) {
+                Actor viewCount2=(Actor) vector.get(j);
+                if (viewCount1.getViewCounts()<viewCount2.getViewCounts()){
+                    index=j;
+                }
+            }
+            viewCount1=(Actor)vector.get(index);
+        }
     }
 }
