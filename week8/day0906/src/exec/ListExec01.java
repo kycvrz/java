@@ -16,6 +16,22 @@ public class ListExec01 {
         list.add(3);
         List list1=new ArrayList();
         int count=0;
+//        for (int i = 0; i < list.size(); i++) {
+//            int element = (int) list.get(i);
+//            boolean isDuplicate = false;
+//
+//            // 检查元素是否在集合中已经存在
+//            for (int j = 0; j < i; j++) {
+//                if (list.get(j).equals(element)) {
+//                    isDuplicate = true;
+//                    break;
+//                }
+//            }
+//            if (!isDuplicate) {
+//                count++;
+//            }
+//        }
+
         for (int i = 0; i < list.size(); i++) {
             if (list1.contains(list.get(i))){
                 continue;

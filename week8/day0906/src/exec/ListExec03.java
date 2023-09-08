@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class ListExec03 {
     public static void main(String[] args) {
+        // 有两个List集合, 计算第⼀个集合对第⼆个集合的差集元素
         ArrayList arrayList=new ArrayList();
         ArrayList arrayList1=new ArrayList();
         arrayList.add(1);

@@ -109,17 +109,27 @@ class ActorTest {
                 }
             }
         }
+        // 插入排序
+//        for (int i = 0; i < vector.size(); i++) {
+//            Actor a1=(Actor) vector.get(i+1);
+//            int prevIndex=i;
+//            while (prevIndex>=0 && ((Actor)(vector.get(prevIndex))).getViewCounts()>a1.getViewCounts()){
+//                vector.set(prevIndex+1,vector.get(prevIndex));
+//                prevIndex--;
+//            }
+//            vector.set(prevIndex+1,a1);
+//        }
         // 选择排序
-        for (int i = 0; i < vector.size(); i++) {
-            Actor viewCount1=(Actor) vector.get(i);
-            int index=i;
-            for (int j = i+1; j < vector.size(); j++) {
-                Actor viewCount2=(Actor) vector.get(j);
-                if (viewCount1.getViewCounts()<viewCount2.getViewCounts()){
-                    index=j;
-                }
-            }
-            viewCount1=(Actor)vector.get(index);
-        }
+//        for (int i = 0; i < vector.size(); i++) {
+//            Actor viewCount1=(Actor) vector.get(i);
+//            int index=i;
+//            for (int j = i+1; j < vector.size(); j++) {
+//                Actor viewCount2=(Actor) vector.get(j);
+//                if (viewCount1.getViewCounts()<viewCount2.getViewCounts()){
+//                    index=j;
+//                }
+//            }
+//            viewCount1=(Actor)vector.get(index);
+//        }
     }
 }
