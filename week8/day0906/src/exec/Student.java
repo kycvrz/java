@@ -30,10 +30,10 @@ class studentTest {
         // Object类型转化为对象类型
         Student student = (Student) arrayList.get(0);
         Student student1 = (Student) arrayList.get(arrayList.size() - 1);
-        double minScore = student.getScore();
-        double maxScore = student1.getScore();
-        System.out.println(student.getScore());
-        System.out.println(student1.getScore());
+//        double minScore = student.getScore();
+//        double maxScore = student1.getScore();
+//        System.out.println(student.getScore());
+//        System.out.println(student1.getScore());
         System.out.println("分数最低学生：" + student);
         System.out.println("分数最高学生：" + student1);
     }
