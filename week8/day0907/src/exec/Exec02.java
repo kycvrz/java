@@ -38,6 +38,8 @@ public class Exec02 {
         }
 //        System.out.println("最早日期为："+earliesDate);
 //        System.out.println("最晚日期为："+lateDates);
+        Set set=new TreeSet(hashSet);
+
     }
 }
 

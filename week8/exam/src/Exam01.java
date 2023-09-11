@@ -3,8 +3,8 @@ import java.util.Map;
 
 public class Exam01 {
     public static void main(String[] args) {
-//        String str="the sky is blue";
-        String str="  hello world  ";
+        String str="the sky is blue";
+//        String str="  hello world  ";
 //        String str="a good   example";
         overturn(str);
     }
@@ -20,7 +20,7 @@ public class Exam01 {
 //        for (int i = 0; i < str2.length; i++) {
 //            System.out.println(str2[i]);
 //        }
-        // 将字符数组转化为字符串转化为字符串
+        // 将字符数组转化为字符串
         String str3="";
         for (int i = 0; i < str2.length; i++) {
             str3+=str2[i]+" ";

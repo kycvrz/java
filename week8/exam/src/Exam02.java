@@ -6,8 +6,10 @@ public class Exam02 {
     public static void main(String[] args) {
 //        String str1="anagram";
 //        String str2="nagaram";
-        String str1="rat";
-        String str2="car";
+//        String str1="rat";
+//        String str2="car";
+        String str1="abc35";
+        String str2="bca3";
         System.out.println(yiWei(str1,str2));
     }
     public static boolean yiWei(String str1,String str2){

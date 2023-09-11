@@ -1,7 +1,5 @@
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Set;
 import java.util.function.Consumer;
 
 public class HashSetDemo {
@@ -13,8 +11,8 @@ public class HashSetDemo {
         hashSet.add("zxy");
         System.out.println(hashSet.size());
         // iterator()方法
-        Iterator iterator=hashSet.iterator();
-        while (iterator.hasNext()){
+        Iterator iterator = hashSet.iterator();
+        while (iterator.hasNext()) {
             System.out.println(iterator.next());
         }
         //forEach(Consumer)
@@ -24,11 +22,15 @@ public class HashSetDemo {
                 System.out.println(o);
             }
         });
-        //Iterable
+        //Iterable  Lambda表达式
         hashSet.forEach(obj -> System.out.println(obj));
-        hashSet.clear();
+        // 增强for循环
+        for (Object obj:hashSet) {
+            System.out.println(obj);
+        }
+//        hashSet.clear();
         System.out.println(hashSet.size());
-        Object[] objects=hashSet.toArray(); // 转化为数字
+        Object[] objects=hashSet.toArray(); // 转化为数组
         for (int i = 0; i < objects.length; i++) {
             System.out.println(objects[i]);
         }
